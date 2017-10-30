@@ -22,7 +22,7 @@ export class SignupComponent implements OnInit {
         Validators.pattern("[a-zA-Z0-9]*@[a-zA-Z0-9]*.[a-z]{3}")
        ]),
       password: new FormControl('', Validators.required),
-      repeatPassword:  new FormControl('', Validators.required)
+      passwordRepeat:  new FormControl('', Validators.required)
       
 
     })
@@ -31,11 +31,13 @@ export class SignupComponent implements OnInit {
 
   signup(){
     
+    console.log(this.signupForm);
     let firstname = this.signupForm.controls.firstname.value;
     let lastname = this.signupForm.controls.lastname.value;
     let email = this.signupForm.controls.email.value;
     let password = this.signupForm.controls.password.value;
     let passwordRepeat = this.signupForm.controls.passwordRepeat.value;
+
 
 
     /*If passwords match user is allowed to sign up */

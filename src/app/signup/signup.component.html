@@ -4,19 +4,19 @@
         <form [formGroup]="signupForm" (ngSubmit)="signup()">
             <div class="form-group row justify-content-center">
                 
-              <div class="col-9 col-md-5">
+              <div class="col-10 col-sm-5">
                   <div class="input-group">
                       <div class="input-group-addon"><span class="fa fa-user-circle"></span></div>
                 <input type="text" class="form-control" id="firstname" formControlName="firstname"
-                placeholder="First Name"/><span>&nbsp;</span>
+                placeholder="Firstname"/><span>&nbsp;</span>
                 <input type="text" class="form-control" id="lastname" formControlName="lastname"
-                placeholder="Last Name"/>
+                placeholder="Lastname"/>
                   </div>
               </div>
             </div>
           <div class="form-group row justify-content-center">
               
-            <div class="col-9 col-md-5">
+            <div class="col-10 col-sm-5">
                 <div class="input-group">
                     <div class="input-group-addon"><span class="fa fa-envelope-o"></span></div>
               <input type="text" class="form-control" id="email" formControlName="email"
@@ -26,7 +26,7 @@
           </div>
             <div class="form-group row justify-content-center">
              
-              <div class="col-9 col-md-5">
+              <div class="col-10 col-sm-5">
                   <div class="input-group">
                       <div class="input-group-addon"><span class="fa fa-lock fa-lg"></span></div>
                           <input type="password" class="form-control" id="password"
@@ -36,8 +36,19 @@
               </div>
           </div>
           <div class="form-group row justify-content-center">
+              
+               <div class="col-10 col-sm-5">
+                   <div class="input-group">
+                       <div class="input-group-addon"><span class="fa fa-lock fa-lg"></span></div>
+                           <input type="password" class="form-control" id="password-repeat"
+                            formControlName="passwordRepeat" placeholder="Repeat Password">
+                       
+                     </div>
+               </div>
+           </div>
+          <div class="form-group row justify-content-center">
             <!-- Disable submit button until form is valid  -->
-            <button class="btn btn-success" type="submit" [disabled]="!signupForm.valid">
+            <button class="btn btn-success" type="submit" [disabled]="!signupForm.valid" >
               <span class="fa fa-user-plus fa-lg"></span> Sign Up</button>
           </div>
         </form>

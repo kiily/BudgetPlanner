@@ -19,13 +19,13 @@ export class LoginComponent implements OnInit {
         Validators.required,
         Validators.pattern("[a-zA-Z0-9]*@[a-zA-Z0-9]*.[a-z]{3}")
        ]),
-      password: new FormControl('', Validators.required),
+      password: new FormControl('', Validators.required)
       
     })
   }
 
   login(){
-
+    console.log(this.loginForm);
   }
 
 }

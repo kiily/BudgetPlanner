@@ -4,5 +4,9 @@
 }
 
 body{
-    background-image: url('./assets/comb-background.jpg');
+    background: url('./assets/comb-background.jpg') no-repeat center;
+}
+
+.btn.btn-success{
+    background-color:#44C3AA;
 }

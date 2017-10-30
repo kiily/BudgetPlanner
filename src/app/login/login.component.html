@@ -3,15 +3,24 @@
     <div class="col-12">
       <form [formGroup]="loginForm" (ngSubmit)="login()">
         <div class="form-group row justify-content-center">
-            <label for="email" class="col-3 col-md-1 col-form-label">Email</label>
+            
           <div class="col-9 col-md-5">
-            <input type="email" class="form-control" id="email" formControlname="email">
+              <div class="input-group">
+                  <div class="input-group-addon"><span class="fa fa-envelope-o"></span></div>
+            <input type="email" class="form-control" id="email" formControlname="email"
+            placeholder="Email">
+              </div>
           </div>
         </div>
           <div class="form-group row justify-content-center">
-              <label for="password" class="col-3 col-md-1 col-form-label">Password</label>
+           
             <div class="col-9 col-md-5">
-              <input type="password" class="form-control" id="password" formControlName="password">
+                <div class="input-group">
+                    <div class="input-group-addon"><span class="fa fa-lock fa-lg"></span></div>
+                        <input type="password" class="form-control" id="password"
+                         formControlName="password" placeholder="Password">
+                    
+                  </div>
             </div>
         </div>
         <div class="form-group row justify-content-center">

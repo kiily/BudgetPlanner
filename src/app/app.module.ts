@@ -10,6 +10,7 @@ import { LoginComponent } from './login/login.component';
 import { SignupComponent } from './signup/signup.component';
 import { BudgetsPageComponent } from './budgets-page/budgets-page.component';
 import { AuthComponent } from './auth/auth.component';
+import { LandingPageComponent } from './landing-page/landing-page.component';
 
 @NgModule({
   declarations: [
@@ -18,7 +19,8 @@ import { AuthComponent } from './auth/auth.component';
     LoginComponent,
     SignupComponent,
     BudgetsPageComponent,
-    AuthComponent
+    AuthComponent,
+    LandingPageComponent
   ],
   imports: [
     BrowserModule,

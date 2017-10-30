@@ -2,3 +2,7 @@
 .jumbotron{
     background-color: #512DA8;
 }
+
+body{
+    background-image: url('./assets/comb-background.jpg');
+}

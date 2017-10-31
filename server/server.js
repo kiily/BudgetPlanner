@@ -18,7 +18,9 @@ app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false}));
 
 //MongoDB connection with Mongoose
-mongoose.connect('mongodb://localhost/BudgetPlannerDB');
+//Create DB in Mongo labs then create a DB user
+//DB user: test pass: test
+mongoose.connect('test:test@ds241395.mlab.com:41395/budgetplannerdb');
 var db = mongoose.connection;
 db.on('error', console.error.bind(console, 'MongoDB connection error:'));
 
@@ -41,7 +43,7 @@ express.static is a built in middleware function to serve static files.
  app.use(cors());
 
  //Set port
- const port = process.env.PORT || '3200';
+ const port = process.env.PORT || '3000';
  app.set('port', port);
  
  const server = http.createServer(app);

@@ -5,7 +5,11 @@ var jwt = require('jsonwebtoken');
 var User = require('../models/user');
 
 /*Creating a new user */
-router.post('/', (req, res, next) => {
+router.post('/', signup);
+
+module.exports = router;
+
+function signup(req, res, next)  {
     //Retrieve the variables from the forms in the request
     var user = new User({
         firstName: req.body.firstName,
@@ -30,6 +34,4 @@ router.post('/', (req, res, next) => {
             })
         }
     });
-});
-
-module.exports = router;
+}

@@ -8,7 +8,7 @@ import { Component, OnInit } from '@angular/core';
 })
 export class BudgetsPageComponent implements OnInit {
 
-  budgets = [new Budget("helllo","29/10/2017" ), new Budget("hel000o","29/10/2017" ), new Budget("helao","29/10/2017" )];
+  budgets = [new Budget("helllo","29/10/2017", 100, 200 ), new Budget("hel000o","29/10/2017", 200, 100 ), new Budget("helao","29/10/2017", 50, 40 )];
   selectedBudget : Budget;
   
   constructor() { }

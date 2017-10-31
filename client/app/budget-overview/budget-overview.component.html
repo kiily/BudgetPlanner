@@ -2,5 +2,9 @@
     <h3 class="card-header bg-success text-white">Overview</h3>
 </div>
 <div class="card-block bg-faded">
-  <p>{{budget.name}}</p>
+  <h2>Income: {{budget.moneyIn}}£</h2>
+  <br>
+  <h2>Spending: {{budget.moneyOut}}£</h2>
+  <br>
+  <h2>Total Saved: {{budget.calculateSavings()}}£</h2>
 </div>

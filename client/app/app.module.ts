@@ -1,3 +1,4 @@
+import { BudgetService } from './services/budget.service';
 import { HttpModule } from '@angular/http';
 import { AuthService } from './services/auth.service';
 import { ReactiveFormsModule } from '@angular/forms';
@@ -33,7 +34,8 @@ import { BudgetOverviewComponent } from './budget-overview/budget-overview.compo
     RouterModule.forRoot(routes)
   ],
   providers: [
-    AuthService
+    AuthService,
+    BudgetService
   ],
   bootstrap: [AppComponent]
 })

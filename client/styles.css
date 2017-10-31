@@ -3,8 +3,11 @@
     background-color: #44C3AA;
 }
 
+/*Padding accounts for fixed navbar*/
 body{
     background: url('./assets/comb-background.jpg') no-repeat center;
+    padding-top: 200px;
+    
 }
 
 .btn.btn-success{

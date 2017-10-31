@@ -1,3 +1,5 @@
+import { HttpModule } from '@angular/http';
+import { AuthService } from './services/auth.service';
 import { ReactiveFormsModule } from '@angular/forms';
 import { RouterModule } from '@angular/router';
 import { routes } from './app.routes';
@@ -25,9 +27,12 @@ import { LandingPageComponent } from './landing-page/landing-page.component';
   imports: [
     BrowserModule,
     ReactiveFormsModule,
+    HttpModule,
     RouterModule.forRoot(routes)
   ],
-  providers: [],
+  providers: [
+    AuthService
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

@@ -1,3 +1,5 @@
+import { Router } from '@angular/router';
+import { AuthService } from '../services/auth.service';
 import { User } from './../models/user.model';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { Component, OnInit } from '@angular/core';
@@ -11,7 +13,7 @@ export class SignupComponent implements OnInit {
 
   signupForm : FormGroup;
 
-  constructor() { }
+  constructor(private authService : AuthService, private router : Router) { }
 
   ngOnInit() {
     this.signupForm= new FormGroup({
@@ -45,6 +47,13 @@ export class SignupComponent implements OnInit {
       //password needs hashing
       let newUser = new User(email, password, firstname, lastname);
       console.log(newUser);
+
+      this.authService.signup(newUser).subscribe(
+        data => console.log(data),
+        error => console.error(error)
+      );
+      this.signupForm.reset();
+      this.router.navigate(['./login']);
     }
 
   }

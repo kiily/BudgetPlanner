@@ -8,8 +8,10 @@ const mongoose = require('mongoose');
 //create the app
 const app = express();
 
-//API file for interaction with MongoDB
-var api = require('./routes/api.js')
+//API file to check API functionality
+var api = require('./routes/api')
+//Get other routes
+var userRoutes = require('./routes/users')
 
 // Parsers - parses requests and makes them accessible with req.body
 app.use(bodyParser.json());
@@ -25,6 +27,9 @@ db.on('error', console.error.bind(console, 'MongoDB connection error:'));
 express.static is a built in middleware function to serve static files.
  Pointing the express server to the dist folder as the place to look for the static files */
  app.use('/', express.static(path.join(__dirname, '../dist')));
+
+ //redirect requests to the defined routes (from more to less specific)
+ app.use('/user', userRoutes);
  app.use('/', api);
 
  //Send all other http requests to the Angular App
@@ -36,7 +41,7 @@ express.static is a built in middleware function to serve static files.
  app.use(cors());
 
  //Set port
- const port = process.env.PORT || '8000';
+ const port = process.env.PORT || '3200';
  app.set('port', port);
  
  const server = http.createServer(app);

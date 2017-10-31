@@ -1,3 +1,4 @@
+import { Router } from '@angular/router';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { Component, OnInit } from '@angular/core';
 import { User } from "../models/user.model";
@@ -11,7 +12,7 @@ export class LoginComponent implements OnInit {
 
   loginForm : FormGroup;
 
-  constructor() { }
+  constructor(private router : Router) { }
 
   ngOnInit() {
     //Construct form in ngOnInit toreduce constrcutor overhead
@@ -26,12 +27,14 @@ export class LoginComponent implements OnInit {
   }
 
   login(){
-    
+    //extract form values
     let email = this.loginForm.controls.email.value;
     let password = this.loginForm.controls.password.value;
 
     let user = new User(email, password);
     console.log(user);
+    //navigate to the budgets page
+    this.router.navigate(['/budgets-page']);
   }
 
 }

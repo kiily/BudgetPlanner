@@ -30,7 +30,7 @@ express.static is a built in middleware function to serve static files.
  app.use(cors());
 
  //Set port
- const port = process.env.PORT || '3200';
+ const port = process.env.PORT || '3000';
  app.set('port', port);
  
  const server = http.createServer(app);

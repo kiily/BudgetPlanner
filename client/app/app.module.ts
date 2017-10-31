@@ -13,6 +13,7 @@ import { SignupComponent } from './signup/signup.component';
 import { BudgetsPageComponent } from './budgets-page/budgets-page.component';
 import { AuthComponent } from './auth/auth.component';
 import { LandingPageComponent } from './landing-page/landing-page.component';
+import { BudgetOverviewComponent } from './budget-overview/budget-overview.component';
 
 @NgModule({
   declarations: [
@@ -22,7 +23,8 @@ import { LandingPageComponent } from './landing-page/landing-page.component';
     SignupComponent,
     BudgetsPageComponent,
     AuthComponent,
-    LandingPageComponent
+    LandingPageComponent,
+    BudgetOverviewComponent
   ],
   imports: [
     BrowserModule,

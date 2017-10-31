@@ -7,6 +7,7 @@ import { Component, OnInit } from '@angular/core';
 })
 export class NavbarComponent implements OnInit {
 
+  /*Note that the Navbar is only used in the Budgets and thus is included in the BudgetModule */
   constructor() { }
 
   ngOnInit() {

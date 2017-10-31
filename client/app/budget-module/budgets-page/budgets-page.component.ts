@@ -1,4 +1,4 @@
-import { Budget } from './../models/budget.model';
+import { Budget } from './../../models/budget.model';
 import { Component, OnInit } from '@angular/core';
 
 @Component({

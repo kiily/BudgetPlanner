@@ -6,7 +6,7 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./auth.component.scss']
 })
 export class AuthComponent implements OnInit {
-
+/*This is part of the landing page and hence not in the auth-module */
   constructor() { }
 
   ngOnInit() {

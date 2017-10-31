@@ -15,6 +15,12 @@ var api = require('./routes/api.js')
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false}));
 
+//MongoDB connection with Mongoose
+mongoose.connect('mongodb://localhost/BudgetPlannerDB');
+var db = mongoose.connection;
+db.on('error', console.error.bind(console, 'MongoDB connection error:'));
+
+
 /*Angular DIST output folder - this is the frontend build
 express.static is a built in middleware function to serve static files.
  Pointing the express server to the dist folder as the place to look for the static files */
@@ -30,7 +36,7 @@ express.static is a built in middleware function to serve static files.
  app.use(cors());
 
  //Set port
- const port = process.env.PORT || '3000';
+ const port = process.env.PORT || '8000';
  app.set('port', port);
  
  const server = http.createServer(app);

@@ -12,6 +12,7 @@ const app = express();
 var api = require('./routes/api')
 //Get other routes
 var userRoutes = require('./routes/users')
+var budgetRoutes = require('./routes/budgets')
 
 // Parsers - parses requests and makes them accessible with req.body
 app.use(bodyParser.json());
@@ -32,6 +33,7 @@ express.static is a built in middleware function to serve static files.
 
  //redirect requests to the defined routes (from more to less specific)
  app.use('/user', userRoutes);
+ app.use('/budget',budgetRoutes )
  app.use('/', api);
 
  //Send all other http requests to the Angular App

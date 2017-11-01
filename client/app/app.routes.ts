@@ -1,5 +1,5 @@
 import { LandingPageComponent } from './landing-page/landing-page.component';
-import { AuthComponent } from './auth.module/auth/auth.component';
+import { AuthComponent } from './auth-nav/auth.component';
 import { BudgetsPageComponent } from './budget-module/budgets-page/budgets-page.component';
 import { LoginComponent } from './auth.module/login/login.component';
 import { SignupComponent } from './auth.module/signup/signup.component';

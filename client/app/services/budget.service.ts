@@ -5,4 +5,9 @@ export class BudgetService {
 
   constructor() { }
 
+  addBudget(){
+
+    
+  }
+
 }

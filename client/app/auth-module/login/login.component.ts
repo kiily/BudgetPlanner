@@ -39,7 +39,7 @@ export class LoginComponent implements OnInit {
         //retrieve token and userId from the data
         localStorage.setItem('token', data.token);
         localStorage.setItem('userId', data.userId);
-        this.router.navigate(['/budgets-page']);
+        this.router.navigateByUrl('/budgets-page');
       },
       error => console.error(error)
     );

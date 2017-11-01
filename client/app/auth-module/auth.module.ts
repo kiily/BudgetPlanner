@@ -16,7 +16,7 @@ import { NgModule } from '@angular/core';
     imports: [
         CommonModule,
         ReactiveFormsModule,
-        RouterModule.forChild(authRoutes)
+        // RouterModule.forChild(authRoutes)
     ],
     providers: [
 

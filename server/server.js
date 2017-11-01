@@ -18,7 +18,9 @@ app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false}));
 
 //MongoDB connection with Mongoose
-mongoose.connect('mongodb://localhost/BudgetPlannerDB');
+//Create DB in Mongo labs then create a DB user
+//DB user: test pass: test
+mongoose.connect('test:test@ds241395.mlab.com:41395/budgetplannerdb');
 var db = mongoose.connection;
 db.on('error', console.error.bind(console, 'MongoDB connection error:'));
 

@@ -9,11 +9,11 @@
         <div class="row">
             <div class="col-12 col-sm-3">
                 <h3 class="hidden-xs-down text-white">New Budget:</h3>
-                <form  [formGroup]="addBudgetForm" (ngSubmit)="addBudget()">
+                <form [formGroup]="addBudgetForm" (ngSubmit)="addBudget()">
                     <div class="form-group row">
                         <label for="name" class="col-sm-2 col-form-label text-white">Budget Name</label>
                         <div class="col-sm-10">
-                                <input type="text" class="form-control" id="name" formControlName="name">                              
+                            <input type="text" class="form-control" id="name" formControlName="name">
                         </div>
                     </div>
                     <div class="form-group row">
@@ -21,16 +21,27 @@
                             <button type="submit" class="btn btn-success" [disabled]="!addBudgetForm.valid"><span class="fa fa-plus fa-lg"></span> Add Budget</button>
                         </div>
                     </div>
+                    <div class="row">
+                        <div class="offset-2 col-2">
+                            <div class="btn-group-vertical">
+                                <button type="button" class="btn btn-info" (click)="editBudget()"><span class="fa fa-pencil-square-o"></span>Edit Budget</button>
+                                <button type="button" class="btn btn-danger" (click)="deleteBudget()"><span class="fa fa-trash-o "></span>Delete Budget</button>
+
+                            </div>
+
+                        </div>
+                    </div>
 
                 </form>
             </div>
-            <div class="col-12 col-sm-3">
+            <div class="col-12 col-sm-4">
                 <div class="card">
                     <h3 class="card-header bg-primary text-white">Your Budgets</h3>
                 </div>
                 <div class="card-block bg-faded">
-                    <div class="row">
-                        <ul class="col-12 list-group" *ngFor="let budget of budgets">
+                    <div class="row pt-1" *ngFor="let budget of budgets">
+
+                        <ul class="col-12 list-group">
                             <li (mouseenter)="selectBudget(budget)" class=" list-group-item">{{budget.name}} - Created on: {{budget.date}}</li>
                             <br>
                         </ul>
@@ -38,7 +49,7 @@
                     </div>
                 </div>
             </div>
-            <div *ngIf="selectedBudget" class="col-12 col-sm-6">
+            <div *ngIf="selectedBudget" class="col-12 col-sm-5">
                 <app-budget-overview [budget]="selectedBudget"></app-budget-overview>
 
             </div>

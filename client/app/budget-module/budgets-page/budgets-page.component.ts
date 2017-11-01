@@ -15,6 +15,8 @@ export class BudgetsPageComponent implements OnInit {
   
   addBudgetForm : FormGroup;
 
+  //toggles the checkbox to select the budget to delete
+  checkboxToggle : boolean = false;
   constructor(private budgetService : BudgetService) { }
 
   ngOnInit() {
@@ -34,6 +36,13 @@ export class BudgetsPageComponent implements OnInit {
 
     this.budgetService.addBudget();
 
+  }
+
+  editBudget(){
+    this.
+  }
+
+  deleteBudget(){
 
   }
 }

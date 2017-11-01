@@ -34,12 +34,12 @@ export class BudgetsPageComponent implements OnInit {
     let budgetName = this.addBudgetForm.controls.name.value;
     let now = new Date();
 
-    this.budgetService.addBudget();
+    // this.budgetService.addBudget();
 
   }
 
   editBudget(){
-    this.
+    
   }
 
   deleteBudget(){

@@ -72,6 +72,7 @@ function login(req, res, next){
         var token = jwt.sign({ user : user}, 'secret', {expiresIn: 3600});
         res.status(200).json({
             title: 'Successfully logged in',
+            //send token to be retrieved by the auth.service and then login.component
             token: token,
             //mongoDB id attribute
             userId: user._id

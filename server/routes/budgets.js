@@ -8,7 +8,7 @@ router.get('/', getMessages);
 /* For all subsequent methods, need to check whether the user is issuing a valid
 token (JWT).  */
 router.use('/', validateToken);
-router,post('/', addBudget);
+router.post('/', addBudget);
 
 module.exports = router;
 

@@ -38,4 +38,11 @@ export class AuthService {
      return Observable.throw(error.json());
   });
   }
+
+
+  //Check whether the user is authenticated
+  isLoggedIn(){
+    //use the token as proof
+    return localStorage.getItem('token') != null;
+  }
 }

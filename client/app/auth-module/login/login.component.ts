@@ -35,11 +35,16 @@ export class LoginComponent implements OnInit {
     let user = new User(email, password);
     
     this.authService.login(user).subscribe(
-      data => console.log(data),
+      data => {
+        //retrieve token and userId from the data
+        localStorage.setItem('token', data.token);
+        localStorage.setItem('userId', data.userId);
+        this.router.navigateByUrl('/budgets-page');
+      },
       error => console.error(error)
     );
     this.loginForm.reset();
-    this.router.navigate(['./budgets-page']);
+ 
   }
 
 }

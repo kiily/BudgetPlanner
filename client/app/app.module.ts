@@ -1,6 +1,6 @@
-import { AuthComponent } from './auth-nav/auth.component';
+import { AuthComponent } from './auth-module/auth/auth.component';
 import { BudgetModule } from './budget-module/budget.module';
-import { AuthModule } from './auth.module/auth.module';
+import { AuthModule } from './auth-module/auth.module';
 import { BudgetService } from './services/budget.service';
 import { HttpModule } from '@angular/http';
 import { AuthService } from './services/auth.service';

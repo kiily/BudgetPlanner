@@ -4,6 +4,7 @@ const path = require('path');
 const http = require('http');
 const cors = require('cors');
 const mongoose = require('mongoose');
+const config = require('./config.json');
 
 //create the app
 const app = express();
@@ -21,7 +22,8 @@ app.use(bodyParser.urlencoded({ extended: false}));
 //MongoDB connection with Mongoose
 //Create DB in Mongo labs then create a DB user
 //DB user: test pass: test
-mongoose.connect('test:test@ds241395.mlab.com:41395/budgetplannerdb');
+console.log(config.connectionString);
+mongoose.connect(config.connectionString);
 var db = mongoose.connection;
 db.on('error', console.error.bind(console, 'MongoDB connection error:'));
 

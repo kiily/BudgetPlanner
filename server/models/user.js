@@ -9,7 +9,7 @@ var userSchema = new Schema({
     lastName: {type: String, required: true},
     password: {type: String, required: true},
     email: {type: String, required: true, unique: true},
-    budgets: [{type: Schema.Types.OnjectId, ref: 'Budget'}]
+    budgets: [{type: Schema.Types.ObjectId, ref: 'Budget'}]
 });
 
 //Add the mongoose validator as a plugin to ensure email uniqueness

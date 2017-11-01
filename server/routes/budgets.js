@@ -4,7 +4,7 @@ var jwt = require('jsonwebtoken');
 var Budget = require('../models/budget');
 var User = require('../models/user');
 
-router.get('/', getMessages);
+router.get('/', getBudgets);
 /* For all subsequent methods, need to check whether the user is issuing a valid
 token (JWT).  */
 router.use('/', validateToken);

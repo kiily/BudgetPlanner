@@ -22,9 +22,11 @@ export class BudgetService {
     //transform the budgets to match the front end model
     let transformedBudgets : Budget[] =[];
     for(let budget of budgets){
+      console.log(budget);
       transformedBudgets.push(new Budget(
         budget.name,
         budget.date,
+        budget._id,
         budget.user._id
       ));
     }

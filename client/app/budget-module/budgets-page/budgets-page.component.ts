@@ -34,5 +34,4 @@ export class BudgetsPageComponent implements OnInit {
     this.selectedBudget = budget;
   }
 
-
 }

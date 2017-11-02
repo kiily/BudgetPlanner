@@ -12,7 +12,6 @@ export class BudgetService {
   //keeps an internal array of the budgets
   budgets : Budget[] =[];
 
-
   constructor(private http : Http) { }
 
   getBudgets(){
@@ -24,7 +23,6 @@ export class BudgetService {
     //transform the budgets to match the front end model
     let transformedBudgets : Budget[] =[];
     for(let budget of budgets){
-      console.log(budget);
       transformedBudgets.push(new Budget(
         budget.name,
         budget.date,

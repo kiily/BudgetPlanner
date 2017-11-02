@@ -1,13 +1,13 @@
 export class Budget{
 
-    constructor(
-        
+    constructor(      
         public name : string,  
         public date : Date, 
         public budgetId? : string,
         public userId? : string,        
         public moneyIn? : number, 
         public moneyOut? :number
+
     ){}
 
     calculateSavings(){

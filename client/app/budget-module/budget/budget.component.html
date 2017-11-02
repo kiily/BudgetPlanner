@@ -2,8 +2,11 @@
 <div class="card-block bg-faded">
     <div class="row pt-1">
         <ul class="col-12 list-group">
-            <li (mouseenter)="selectBudget(budget)" class=" list-group-item">{{budget.name}} - Created on: {{budget.budgetId}}</li>
-            <br>
+            <li (click)="selectBudget(budget)" (mouseenter)="budgetHover(budget)" class=" list-group-item">{{budget.name}} - Created on: {{budget.budgetId}}</li>
+            <div class="action-links">
+                <a (click)="onEdit()">Edit</a>
+                <a (click)="onDelete()">Delete</a>
+            </div>
         </ul>
 
     </div>

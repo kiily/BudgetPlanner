@@ -13,7 +13,7 @@ export class BudgetsPageComponent implements OnInit {
 
 
   budgets : Budget[] = [];
-  selectedBudget : Budget;
+  hoveredBudget : Budget;
   
 
   //toggles the checkbox to select the budget to delete
@@ -29,9 +29,5 @@ export class BudgetsPageComponent implements OnInit {
     });
   }
 
-  selectBudget(budget){
-    console.log(budget);
-    this.selectedBudget = budget;
-  }
 
 }

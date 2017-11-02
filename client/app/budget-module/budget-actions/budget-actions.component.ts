@@ -13,6 +13,8 @@ import { Budget } from '../../models/budget.model';
 export class BudgetActionsComponent implements OnInit {
 
   addBudgetForm : FormGroup;
+  budget : Budget;
+  isEdit : boolean = false;
   
   constructor(private budgetService : BudgetService) { }
 
@@ -20,6 +22,14 @@ export class BudgetActionsComponent implements OnInit {
     //form setup
     this.addBudgetForm = new FormGroup({
       name: new FormControl('', Validators.required)
+    });
+
+    //listen to the event emitter and change is edit to true
+    this.budgetService.budgetIsEdit.subscribe((budget : Budget) => {
+      this.isEdit= true;
+      this.budget = budget;
+      console.log('actions component');
+      console.log(this.budget)
     });
 
   }
@@ -39,13 +49,30 @@ export class BudgetActionsComponent implements OnInit {
       error => console.error(error)
     );
 
+    this.addBudgetForm.reset();
+
   }
 
   editBudget(){
-    
+        //extract the updated value from the form
+        this.budget.name = this.addBudgetForm.controls.name.value;
+        this.budgetService.updateBudget(this.budget).subscribe(
+          result => console.log(result)
+
+        );
+        //reset internal budget object
+        this.budget = null;
+        //toggle is edit boolean
+        this.isEdit =false;
+
   }
 
-  deleteBudget(){
+  /* Utility method to clear the input field when editing a budget */
+  clear(){
+    //reset form
+    this.addBudgetForm.reset();
+    //toggle boolean for edit
+    this.isEdit = false;
 
   }
 

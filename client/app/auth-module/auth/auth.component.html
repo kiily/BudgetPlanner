@@ -1,0 +1,29 @@
+
+<div class="card">
+  <div class="row mb-2">
+      <div class="col">
+          <!-- Authentication Navigation here -->
+          <nav class="card-header" role="navigation">
+            <ul class="nav nav-pills justify-content-center navbar-inverse">
+              <li class="nav-item" ><a routerLinkActive="active-link" class="btn" [routerLink]="['/login']">Log in</a></li>
+              <li class="nav-item" ><a routerLinkActive="active-link" class="nav-link" [routerLink]="['/signup']">Sign Up</a></li>
+            </ul>
+          </nav>
+      </div>
+  </div>
+  <div class="card-block">
+      <div class="row mt-2 ">
+          <div class="offset-sm-1 col-12 col-sm-10">
+              <h3>Welcome to BudgetPlanner. How much have you saved today?</h3>
+          </div>
+          <div class="row pt-2">
+          <router-outlet></router-outlet>
+          </div>
+      </div>
+  </div>
+</div>
+ 
+
+
+            
+              

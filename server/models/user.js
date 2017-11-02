@@ -8,8 +8,8 @@ var userSchema = new Schema({
     firstName: {type: String, required: true},
     lastName: {type: String, required: true},
     password: {type: String, required: true},
-    email: {type: String, required: true, unique: true}
-    //need to link this to the budgets later on
+    email: {type: String, required: true, unique: true},
+    budgets: [{type: Schema.Types.ObjectId, ref: 'Budget'}]
 });
 
 //Add the mongoose validator as a plugin to ensure email uniqueness

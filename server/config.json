@@ -1,0 +1,4 @@
+{
+    "connectionString": "test:test@ds241395.mlab.com:41395/budgetplannerdb",
+    "secret":  "secret"
+}

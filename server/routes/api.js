@@ -8,4 +8,10 @@ router.get('/', (req, res) => {
 });
 
 
+router.get('/', (req, res) => {
+  //this is the correct path in the dist folder as there are no subfolders.
+  res.render('index');
+  
+});
+
 module.exports = router;

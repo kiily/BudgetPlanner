@@ -13,10 +13,10 @@
                 <div class="card">
                     <h3 class="card-header bg-primary text-white">Your Budgets</h3>
                 </div>
-                <app-budget (budgetHoverEvt)="selectedBudget = $event" *ngFor="let budget of budgets" [budget]="budget"></app-budget>
+                <app-budget (budgetHoverEvt)="hoveredBudget = $event" *ngFor="let budget of budgets" [budget]="budget"></app-budget>
             </div>
-            <div *ngIf="selectedBudget" class="col-12 col-sm-5">
-                <app-budget-overview [budget]="selectedBudget"></app-budget-overview>
+            <div *ngIf="hoveredBudget" class="col-12 col-sm-5">
+                <app-budget-overview [budget]="hoveredBudget"></app-budget-overview>
 
             </div>
         </div>

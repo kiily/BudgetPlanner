@@ -8,9 +8,7 @@ router.get('/', getBudgets);
 /* For all subsequent methods, need to check whether the user is issuing a valid
 token (JWT).  */
 router.use('/', validateToken);
-
 router.post('/', addBudget)
-
 
 module.exports = router;
 
@@ -27,7 +25,6 @@ function getBudgets(req, res, next){
         res.status(200).json({
             title: "Sucess",
             obj: budgets
-
         })
     });
 }
@@ -82,6 +79,5 @@ function addBudget(req, res, next){
             });
         });
     });
-  
 
 }

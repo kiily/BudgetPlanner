@@ -16,18 +16,20 @@ export class BudgetsPageComponent implements OnInit {
  
 
 
+
   //toggles the checkbox to select the budget to delete
   checkboxToggle : boolean = false;
   constructor(private budgetService : BudgetService) { }
 
   ngOnInit() {
 
+
     
+
     //get the user's budgets upon loading
     this.budgetService.getBudgets().subscribe( (budgets : Budget[]) => {
       this.budgets = budgets;
       console.log(budgets);
-
     });
   }
 
@@ -35,10 +37,6 @@ export class BudgetsPageComponent implements OnInit {
     console.log(budget);
     this.selectedBudget = budget;
   }
-
-
-
-
 
 
 }

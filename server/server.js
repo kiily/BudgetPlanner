@@ -12,7 +12,6 @@ const app = express();
 //API file to check API functionality
 var api = require('./routes/api');
 //Get other routes
-
 var userRoutes = require('./routes/users');
 var budgetRoutes = require('./routes/budgets');
 
@@ -24,7 +23,6 @@ app.use(bodyParser.urlencoded({ extended: false}));
 //MongoDB connection with Mongoose
 //Create DB in Mongo labs then create a DB user
 //DB user: test pass: test
-
 mongoose.connect(config.connectionString);
 var db = mongoose.connection;
 db.on('error', console.error.bind(console, 'MongoDB connection error:'));

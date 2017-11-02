@@ -1,5 +1,6 @@
 export class Budget{
 
+
     constructor(      
         public name : string,  
         public date : Date, 
@@ -7,7 +8,6 @@ export class Budget{
         public userId? : string,        
         public moneyIn? : number, 
         public moneyOut? :number
-
     ){}
 
     calculateSavings(){

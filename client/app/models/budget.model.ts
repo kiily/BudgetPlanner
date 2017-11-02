@@ -1,7 +1,7 @@
 export class Budget{
 
-    constructor(
-        
+
+    constructor(      
         public name : string,  
         public date : Date, 
         public budgetId? : string,

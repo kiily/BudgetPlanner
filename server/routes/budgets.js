@@ -79,5 +79,5 @@ function addBudget(req, res, next){
             });
         });
     });
-  
+
 }

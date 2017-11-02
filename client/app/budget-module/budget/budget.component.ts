@@ -1,5 +1,5 @@
-import { Budget } from '../../models/budget.model';
-import { Component, OnInit, Input } from '@angular/core';
+ import { Budget } from '../../models/budget.model';
+import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 
 @Component({
   selector: 'app-budget',
@@ -9,13 +9,14 @@ import { Component, OnInit, Input } from '@angular/core';
 export class BudgetComponent implements OnInit {
 
   @Input() budget : Budget;
+  @Output() budgetHoverEvt = new EventEmitter<Budget>();
 
   constructor() { }
 
   ngOnInit() {
   }
 
-  selectBudget(budget : Budget){
-    console.log(this.budget);
+  budgetHover(budget : Budget){
+    this.budgetHoverEvt.emit(budget);
   }
 }

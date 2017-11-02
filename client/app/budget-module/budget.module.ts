@@ -1,3 +1,4 @@
+import { BudgetComponent } from './budget/budget.component';
 import { NavbarComponent } from './navbar/navbar.component';
 import { ReactiveFormsModule } from '@angular/forms';
 import { CommonModule } from '@angular/common';
@@ -7,13 +8,14 @@ import { BudgetDetailComponent } from './budget-detail/budget-detail.component';
 import { NgModule } from "@angular/core";
 import { BudgetActionsComponent } from './budget-actions/budget-actions.component';
 
-
+//Budget-related components and navbar
 @NgModule({
     declarations: [
         BudgetDetailComponent,
         BudgetOverviewComponent,
         BudgetsPageComponent,
         BudgetActionsComponent,
+        BudgetComponent,
         NavbarComponent
     ],
     imports: [

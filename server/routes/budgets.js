@@ -8,8 +8,9 @@ router.get('/', getBudgets);
 /* For all subsequent methods, need to check whether the user is issuing a valid
 token (JWT).  */
 router.use('/', validateToken);
-
-router.post('/', addBudget)
+router.post('/', addBudget);
+router.patch('/:id', updateBudget);
+router.delete('/:id', deleteBudget);
 
 
 module.exports = router;
@@ -27,8 +28,7 @@ function getBudgets(req, res, next){
         res.status(200).json({
             title: "Sucess",
             obj: budgets
-
-        })
+        });
     });
 }
 
@@ -82,6 +82,97 @@ function addBudget(req, res, next){
             });
         });
     });
-  
+
+}
+
+function updateBudget(req,res,next){
+    //update the selected budget + check that the user deleting it is the one the budget belongs to
+    var decoded = jwt.decode(req.query.token);
+
+    Budget.findById(req.params.id, function(err, budget){
+        if(err){
+            return res.status(500).json({
+                title: "An error occurred",
+                error: err
+            });
+        }
+        //check whether the budget was found
+        if(!budget){
+            return res.status(500).json({
+                title: "An error occurred",
+                error: err
+            });
+        }
+        //check the user is different
+        if(budget.user != decoded.user._id){
+            return res.status(401).json({
+                title: 'Not Authenticated',
+                error: {message: 'Users do not match'}
+            });
+        }
+        //all checks passed; update the budget
+        budget.name = req.body.name;
+        budget.save(function(err, result){
+            if(err){
+                //there is an error; send a server error 500 and tranform to json to error handle in the front end
+                return res.status(500).json({
+                    title: "An error occurred",
+                    error: err
+                });
+            }
+            //Resource successfully created
+            res.status(201).json({
+                message: 'Updated Budget Name',
+                obj: result
+            });
+        
+        });
+    });
+}
+
+function deleteBudget(req,res,next){
+    //update the selected budget + check that the user deleting it is the one the budget belongs to
+    var decoded = jwt.decode(req.query.token);
+
+    //find budget with the id passed in the url parameters
+    Budget.findById(req.params.id, function(err, budget){
+        if(err){
+            return res.status(500).json({
+                title: "An error occurred",
+                error: err
+            });
+        }
+        //check whether the budget was found
+        if(!budget){
+            return res.status(500).json({
+                title: "No Budget Found!",
+                error: err
+            });
+        }
+        //check the user is different
+        if(budget.user != decoded.user._id){
+            return res.status(401).json({
+                title: 'Not Authenticated',
+                error: {message: 'Users do not match'}
+            });
+        }
+        //all checks passed; delete the budget; pull this from the user's budget's array (see models/budget.js)
+        budget.remove(function(err, result){
+            if(err){
+                //there is an error; send a server error 500 and tranform to json to error handle in the front end
+                return res.status(500).json({
+                    title: "An error occurred",
+                    error: err
+                });
+            }
+            //Resource successfully created
+            res.status(201).json({
+                message: 'Removed Budget',
+                obj: result
+            });
+        
+        });
+    });
+
 
 }

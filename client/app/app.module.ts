@@ -20,6 +20,7 @@ import { LandingPageComponent } from './landing-page/landing-page.component';
     AppComponent,
     LandingPageComponent,
     AuthComponent
+
   ],
   imports: [
     BrowserModule,

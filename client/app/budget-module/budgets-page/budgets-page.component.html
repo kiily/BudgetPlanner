@@ -9,21 +9,21 @@
     
     <div class="container-fluid pt-5">
         <div class="row">
-
             <div class="col-12 col-sm-4">
                 <div class="card">
                     <h3 class="card-header bg-primary text-white">Your Budgets</h3>
                 </div>
-                <div class="card-block bg-faded">
+                <app-budget *ngFor="let budget of budgets" [budget]="budget"></app-budget>
+                <!-- <div class="card-block bg-faded">
                     <div class="row pt-1" *ngFor="let budget of budgets">
 
                         <ul class="col-12 list-group">
-                            <li (mouseenter)="selectBudget(budget)" class=" list-group-item">{{budget.name}} - Created on: {{budget.date}}</li>
+                            <li (mouseenter)="selectBudget(budget)" class=" list-group-item">{{budget.name}} - Created on: {{budget.budgetId}}</li>
                             <br>
                         </ul>
 
                     </div>
-                </div>
+                </div> -->
             </div>
             <div *ngIf="selectedBudget" class="col-12 col-sm-5">
                 <app-budget-overview [budget]="selectedBudget"></app-budget-overview>

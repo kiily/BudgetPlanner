@@ -1,4 +1,3 @@
-
 import { Observable } from 'rxjs/Observable';
 import { Budget } from './../models/budget.model';
 import { Http, Headers, Response } from '@angular/http';
@@ -6,6 +5,8 @@ import { Injectable } from '@angular/core';
 import 'rxjs/add/operator/map';
 import 'rxjs/add/operator/catch';
 
+/*This class provides the methods to send HTTP requests to the backend to deal with budget-related operations.
+This includes all budget CRUD operations */
 @Injectable()
 export class BudgetService {
   //keeps an internal array of the budgets
@@ -25,6 +26,7 @@ export class BudgetService {
       transformedBudgets.push(new Budget(
         budget.name,
         budget.date,
+        budget._id,
         budget.user._id
       ));
     }
@@ -62,9 +64,14 @@ export class BudgetService {
       //needs further error handling logic
       return Observable.throw(error.json());
     });
-
-
     
   }
 
+  updateBudget(budget : Budget){
+
+  }
+
+  deleteBudget(budget : Budget){
+    
+  }
 }

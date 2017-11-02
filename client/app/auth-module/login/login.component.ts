@@ -1,4 +1,5 @@
 import { Router } from '@angular/router';
+import { AuthService } from '../../services/auth.service';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { Component, OnInit } from '@angular/core';
 import { User } from "../../models/user.model";
@@ -12,7 +13,7 @@ export class LoginComponent implements OnInit {
 
   loginForm : FormGroup;
 
-  constructor(private router : Router) { }
+  constructor(private authService : AuthService, private router : Router) { }
 
   ngOnInit() {
     //Construct form in ngOnInit toreduce constrcutor overhead
@@ -32,9 +33,18 @@ export class LoginComponent implements OnInit {
     let password = this.loginForm.controls.password.value;
 
     let user = new User(email, password);
-    console.log(user);
-    //navigate to the budgets page
-    this.router.navigate(['/budgets-page']);
+    
+    this.authService.login(user).subscribe(
+      data => {
+        //retrieve token and userId from the data
+        localStorage.setItem('token', data.token);
+        localStorage.setItem('userId', data.userId);
+        this.router.navigateByUrl('/budgets-page');
+      },
+      error => console.error(error)
+    );
+    this.loginForm.reset();
+ 
   }
 
 }

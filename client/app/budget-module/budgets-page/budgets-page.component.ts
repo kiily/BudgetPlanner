@@ -1,3 +1,5 @@
+import { BudgetService } from '../../services/budget.service';
+import { FormGroup, FormControl, Validators } from '@angular/forms';
 import { Budget } from './../../models/budget.model';
 import { Component, OnInit } from '@angular/core';
 
@@ -8,12 +10,25 @@ import { Component, OnInit } from '@angular/core';
 })
 export class BudgetsPageComponent implements OnInit {
 
-  budgets = [new Budget("helllo","29/10/2017", 100, 200 ), new Budget("hel000o","29/10/2017", 200, 100 ), new Budget("helao","29/10/2017", 50, 40 )];
+  budgets : Budget[] = [];
   selectedBudget : Budget;
   
-  constructor() { }
+  addBudgetForm : FormGroup;
+
+  //toggles the checkbox to select the budget to delete
+  checkboxToggle : boolean = false;
+  constructor(private budgetService : BudgetService) { }
 
   ngOnInit() {
+    this.addBudgetForm = new FormGroup({
+      name: new FormControl('', Validators.required)
+    });
+
+    //get the user's budgets upon loading
+    this.budgetService.getBudgets().subscribe( (budgets : Budget[]) => {
+      this.budgets = budgets;
+      console.log(budgets);
+    });
   }
 
   selectBudget(budget){
@@ -21,4 +36,26 @@ export class BudgetsPageComponent implements OnInit {
     this.selectedBudget = budget;
   }
 
+
+
+  addBudget(){
+    let budgetName = this.addBudgetForm.controls.name.value;
+    let now = new Date();
+
+    let budget = new Budget(budgetName, now);
+
+    this.budgetService.addBudget(budget).subscribe(
+      data => console.log(data),
+      error => console.error(error)
+    );
+
+  }
+
+  editBudget(){
+    
+  }
+
+  deleteBudget(){
+
+  }
 }

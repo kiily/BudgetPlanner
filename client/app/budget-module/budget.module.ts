@@ -5,6 +5,7 @@ import { BudgetsPageComponent } from './budgets-page/budgets-page.component';
 import { BudgetOverviewComponent } from './budget-overview/budget-overview.component';
 import { BudgetDetailComponent } from './budget-detail/budget-detail.component';
 import { NgModule } from "@angular/core";
+import { BudgetActionsComponent } from './budget-actions/budget-actions.component';
 
 
 @NgModule({
@@ -12,6 +13,7 @@ import { NgModule } from "@angular/core";
         BudgetDetailComponent,
         BudgetOverviewComponent,
         BudgetsPageComponent,
+        BudgetActionsComponent,
         NavbarComponent
     ],
     imports: [

@@ -22,7 +22,7 @@ function signup(req, res, next)  {
         email: req.body.email
 
     });
-    console.log('saving');
+   
     user.save(function(err,result){
         if(err){
             return res.status(500).json({

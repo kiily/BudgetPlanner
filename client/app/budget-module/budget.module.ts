@@ -1,3 +1,4 @@
+import { BudgetActionsComponent } from './budget-actions/budget-actions.component';
 import { NavbarComponent } from './navbar/navbar.component';
 import { ReactiveFormsModule } from '@angular/forms';
 import { CommonModule } from '@angular/common';
@@ -12,6 +13,7 @@ import { NgModule } from "@angular/core";
         BudgetDetailComponent,
         BudgetOverviewComponent,
         BudgetsPageComponent,
+        BudgetActionsComponent,
         NavbarComponent
     ],
     imports: [

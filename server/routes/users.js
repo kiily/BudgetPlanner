@@ -1,5 +1,6 @@
 const express = require('express');
 const router = express.Router();
+const config = require('../config.json');
 var bcrypt = require('bcryptjs');
 var jwt = require('jsonwebtoken');
 var User = require('../models/user');
@@ -21,7 +22,7 @@ function signup(req, res, next)  {
         email: req.body.email
 
     });
-    console.log('saving');
+   
     user.save(function(err,result){
         if(err){
             return res.status(500).json({
@@ -69,7 +70,7 @@ function login(req, res, next){
         //create a client token for future requests, using JWT (JSON Web Token)
         //generate and sign a token; store the user in the token as the payload
         //set expiration (here 1hours); secret = secret
-        var token = jwt.sign({ user : user}, 'secret', {expiresIn: 3600});
+        var token = jwt.sign({ user : user}, config.secret, {expiresIn: 3600});
         res.status(200).json({
             title: 'Successfully logged in',
             //send token to be retrieved by the auth.service and then login.component

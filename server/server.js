@@ -4,15 +4,18 @@ const path = require('path');
 const http = require('http');
 const cors = require('cors');
 const mongoose = require('mongoose');
+const config = require('./config.json');
 
 //create the app
 const app = express();
 
 //API file to check API functionality
-var api = require('./routes/api')
+var api = require('./routes/api');
 //Get other routes
-var userRoutes = require('./routes/users')
-var budgetRoutes = require('./routes/budgets')
+
+var userRoutes = require('./routes/users');
+var budgetRoutes = require('./routes/budgets');
+
 
 // Parsers - parses requests and makes them accessible with req.body
 app.use(bodyParser.json());
@@ -21,7 +24,8 @@ app.use(bodyParser.urlencoded({ extended: false}));
 //MongoDB connection with Mongoose
 //Create DB in Mongo labs then create a DB user
 //DB user: test pass: test
-mongoose.connect('test:test@ds241395.mlab.com:41395/budgetplannerdb');
+
+mongoose.connect(config.connectionString);
 var db = mongoose.connection;
 db.on('error', console.error.bind(console, 'MongoDB connection error:'));
 
@@ -33,12 +37,13 @@ express.static is a built in middleware function to serve static files.
 
  //redirect requests to the defined routes (from more to less specific)
  app.use('/user', userRoutes);
- app.use('/budget',budgetRoutes )
+ app.use('/budget',budgetRoutes);
+
  app.use('/', api);
 
  //Send all other http requests to the Angular App
  app.get('*', (req, res) => {
-    res.sendFile(path.join(__dirname, 'dist/index.html'));
+    res.sendFile(path.join(__dirname, '../dist/index.html'));
  });
 
  //Middleware for CORS

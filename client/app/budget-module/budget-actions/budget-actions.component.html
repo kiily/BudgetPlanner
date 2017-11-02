@@ -1,0 +1,29 @@
+
+<div class="container-fluid">
+  <div class="row">
+    <div class="col-sm-2">
+      <h3 class="hidden-xs-down text-white">New Budget:</h3>
+    </div>
+
+    <div class="col-9 col-sm-10">
+      <form [formGroup]="addBudgetForm" (ngSubmit)="addBudget()">
+          <div class="form-group row">
+              <label for="name" class="col-sm-2 col-form-label text-white">Budget Name</label>
+              <div class="col-sm-8">
+                  <input type="text" class="form-control" id="name" formControlName="name">
+              </div>
+         
+         
+          <div class="col-sm-2">
+                  <div class="btn-group-vertical mr-3">
+                      <button type="submit" class="btn btn-success" [disabled]="!addBudgetForm.valid"><span class="fa fa-plus fa-lg"></span> Add Budget</button>             
+                      <button type="button" class="btn btn-info" (click)="editBudget()"><span class="fa fa-pencil-square-o"></span>Change Budget Name</button>
+                      <button type="button" class="btn btn-danger" (click)="deleteBudget()"><span class="fa fa-trash-o "></span>Delete Budget</button>
+
+                  </div>
+              </div>
+            </div>
+    </form>
+    </div>
+  </div>
+</div>

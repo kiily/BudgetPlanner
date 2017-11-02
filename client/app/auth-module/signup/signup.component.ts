@@ -4,6 +4,7 @@ import { User } from './../../models/user.model';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { Component, OnInit } from '@angular/core';
 
+/*This class constructs the sign-up component which includes the signup form and method */
 @Component({
   selector: 'app-signup',
   templateUrl: './signup.component.html',
@@ -16,6 +17,7 @@ export class SignupComponent implements OnInit {
   constructor(private authService : AuthService, private router : Router) { }
 
   ngOnInit() {
+    //initialize the form group
     this.signupForm= new FormGroup({
       firstname: new FormControl('', Validators.required),
       lastname: new FormControl('', Validators.required),
@@ -31,9 +33,11 @@ export class SignupComponent implements OnInit {
   }
 
 
+  /*This method initiates the sign up process by passing the sign up form values
+  to the authService which communicates with the backend */
   signup(){
     
-    console.log(this.signupForm);
+    //extract values from form 
     let firstname = this.signupForm.controls.firstname.value;
     let lastname = this.signupForm.controls.lastname.value;
     let email = this.signupForm.controls.email.value;
@@ -41,18 +45,18 @@ export class SignupComponent implements OnInit {
     let passwordRepeat = this.signupForm.controls.passwordRepeat.value;
 
 
-
     /*If passwords match user is allowed to sign up */
     if(password === passwordRepeat){
-      //password needs hashing
+      //create User object
       let newUser = new User(email, password, firstname, lastname);
-      console.log(newUser);
-
+ 
       this.authService.signup(newUser).subscribe(
         data => console.log(data),
         error => console.error(error)
       );
+      //reset form
       this.signupForm.reset();
+      //navigate to login child route
       this.router.navigate(['./login']);
     }
 

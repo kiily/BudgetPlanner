@@ -10,6 +10,7 @@ export class Budget{
         public moneyOut? :number
     ){}
 
+    //Method to calculate the money saved
     calculateSavings(){
         let diff = this.moneyIn - this.moneyOut;
         return diff;

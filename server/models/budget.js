@@ -3,6 +3,8 @@ var Schema = mongoose.Schema;
 var mongooseUniqueValidator = require('mongoose-unique-validator');
 var User = require('./user');
 
+
+//Mongoose budget schema
 var budgetSchema = new Schema({
     //maps to budget-model.ts
     name: {type: String, required: true},

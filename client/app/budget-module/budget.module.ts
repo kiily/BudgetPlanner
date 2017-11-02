@@ -8,7 +8,7 @@ import { BudgetDetailComponent } from './budget-detail/budget-detail.component';
 import { NgModule } from "@angular/core";
 import { BudgetActionsComponent } from './budget-actions/budget-actions.component';
 
-
+//Budget-related components and navbar
 @NgModule({
     declarations: [
         BudgetDetailComponent,

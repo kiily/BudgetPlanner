@@ -5,6 +5,8 @@ import { Injectable } from '@angular/core';
 import 'rxjs/add/operator/map';
 import 'rxjs/add/operator/catch';
 
+/*This class provides the methods to send HTTP requests to the backend to deal with budget-related operations.
+This includes all budget CRUD operations */
 @Injectable()
 export class BudgetService {
   //keeps an internal array of the budgets
@@ -67,4 +69,11 @@ export class BudgetService {
     
   }
 
+  updateBudget(budget : Budget){
+
+  }
+
+  deleteBudget(budget : Budget){
+    
+  }
 }

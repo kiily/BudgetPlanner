@@ -2,6 +2,8 @@ import { BudgetService } from '../../services/budget.service';
 import { Budget } from './../../models/budget.model';
 import { Component, OnInit } from '@angular/core';
 
+/*This class constructs the Bugdets page, this is specific to each user. It shows the user's budgets (BudgetComponent)
+and an overview (BudgetOverviewComponent) and includes a Navbar (NavbarComponent) */
 @Component({
   selector: 'app-budgets-page',
   templateUrl: './budgets-page.component.html',

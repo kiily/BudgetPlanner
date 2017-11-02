@@ -2,6 +2,7 @@ import { AuthService } from '../services/auth.service';
 import { Router } from '@angular/router';
 import { Component, OnInit } from '@angular/core';
 
+/*This class constructs the landing page for the BudgetPlanner */
 @Component({
   selector: 'app-landing-page',
   templateUrl: './landing-page.component.html',

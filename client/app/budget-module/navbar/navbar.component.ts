@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 
+/*This class constructs the navbar used in the budgets-module */
 @Component({
   selector: 'app-navbar',
   templateUrl: './navbar.component.html',

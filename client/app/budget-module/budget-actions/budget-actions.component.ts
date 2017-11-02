@@ -3,6 +3,7 @@ import { FormGroup, FormControl, Validators } from '@angular/forms';
 import { Component, OnInit } from '@angular/core';
 import { Budget } from '../../models/budget.model';
 
+
 /*This class constructs all the elements that enable the manipulation of budgets. Includes adding, updating and deleting. */
 @Component({
   selector: 'app-budget-actions',
@@ -22,6 +23,7 @@ export class BudgetActionsComponent implements OnInit {
     });
 
   }
+
 
 
   /*This method initiates the process of adding a budget and passes the newly created budget object to the

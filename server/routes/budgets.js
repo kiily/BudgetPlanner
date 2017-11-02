@@ -28,7 +28,7 @@ function getBudgets(req, res, next){
         res.status(200).json({
             title: "Sucess",
             obj: budgets
-        })
+        });
     });
 }
 
@@ -173,5 +173,6 @@ function deleteBudget(req,res,next){
         
         });
     });
+
 
 }

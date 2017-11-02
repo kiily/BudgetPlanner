@@ -1,6 +1,5 @@
 export class Budget{
 
-
     constructor(      
         public name : string,  
         public date : Date, 

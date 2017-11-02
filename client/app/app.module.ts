@@ -11,15 +11,14 @@ import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { AppComponent } from './app.component';
 import { LandingPageComponent } from './landing-page/landing-page.component';
-import { BudgetDetailComponent } from './budget-detail/budget-detail.component';
+
 
 
 @NgModule({
   declarations: [
     AppComponent,
     LandingPageComponent,
-    AuthComponent,
-    BudgetDetailComponent,
+    AuthComponent
   ],
   imports: [
     BrowserModule,
